@@ -26,7 +26,6 @@ using namespace std;
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  SECTION 1 — PACKAGE
-//  A delivery item with an ID, weight (kg), and profit ($).
 // ─────────────────────────────────────────────────────────────────────────────
 
 struct Package
@@ -213,7 +212,6 @@ void printKnapsackResult(const KnapsackResult &r)
 
 const double INF = numeric_limits<double>::infinity();
 
-// Represents an edge from one node to another
 struct Neighbor
 {
     int node;    // destination node index
@@ -403,9 +401,6 @@ struct Graph
 };
 // ─────────────────────────────────────────────────────────────────────────────
 //  SECTION 4 — UNION-FIND  (used by Kruskal)
-//
-//  Tracks which nodes are already connected so Kruskal can skip
-//  edges that would form a cycle.
 // ─────────────────────────────────────────────────────────────────────────────
 
 class UnionFind
@@ -527,10 +522,6 @@ void printMST(const MSTResult &r, const Graph &g)
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  SECTION 6 — QUICK SORT
-//
-//  Sorts vector<Package> in-place using median-of-three pivot selection.
-//
-//  Comparators:  byWeight, byProfit, byRatio (profit/kg)
 // ─────────────────────────────────────────────────────────────────────────────
 
 using Cmp = function<bool(const Package &, const Package &)>;
@@ -833,18 +824,6 @@ int main()
                 UI::pause();
                 break;
             }
-            // case 4: {
-            //     g.printAdjList();
-            //     int src = UI::readInt("  Source node index (0-"
-            //                           + to_string(g.numNodes-1) + "): ");
-            //     if (src < 0 || src >= g.numNodes)
-            //         cout << "  [!] Invalid node index.\n";
-            //     else
-            //         g.printDijkstra(src);
-            //     UI::pause();
-            //     break;
-            // }
-
             // ── 5. Kruskal MST ────────────────────────────────────────────────
             case 5:
             {
